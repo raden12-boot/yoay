@@ -1,0 +1,195 @@
+/* Reset dan base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container utama */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #a0a0c0;
+    font-size: 1.1rem;
+}
+
+/* Grid untuk game */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Card game */
+.game-card {
+    background: rgba(30, 30, 46, 0.8);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(100, 100, 255, 0.3);
+}
+
+/* Gambar game */
+.game-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Konten card */
+.game-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Tombol pilih game */
+.select-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #4776E6, #8E54E9);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    letter-spacing: 0.5px;
+}
+
+.select-btn:hover {
+    background: linear-gradient(90deg, #5a85f0, #a066f5);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(142, 84, 233, 0.4);
+}
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 480px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Indikator loading (opsional) */
+.loading-indicator {
+    text-align: center;
+    padding: 40px;
+    color: #a0a0c0;
+    font-size: 1.1rem;
+}
+
+/* Pesan jika tidak ada game */
+.no-games {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(30, 30, 46, 0.5);
+    border-radius: 16px;
+    grid-column: 1 / -1;
+}
+
+.no-games h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.no-games p {
+    color: #a0a0c0;
+}
+
+/* Efek hover tambahan */
+.game-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4776E6, #8E54E9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover::after {
+    opacity: 1;
+}
